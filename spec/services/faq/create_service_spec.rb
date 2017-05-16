@@ -1,14 +1,16 @@
 require_relative './../../spec_helper.rb'
 
-
 describe FaqModule::CreateService do
+
+  before do
+    @company  = create(:company)
+    @question = FFaker::Lorem.sentence
+    @answer   = FFaker::Lorem.sentence
+    @hashtags = "#{FFaker::Lorem.word}, #{FFaker::Lorem.word}"
+  end
+
   describe '#call' do
     it "with valid params, receive success message" do
-      @company = Company.create(name: "OneBitBot")
-      @question = "Teste"
-      @answer = "testando"
-      @hashtags = "tag,tagg"
-
       @createService = FaqModule::CreateService.new("question.original" => @question, "answer.original" => @answer, "hashtags.original" => @hashtags)
 
       response = @createService.call()
