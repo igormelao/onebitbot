@@ -10,6 +10,8 @@ module FaqModule
     end
 
     def call()
+      return "A Hashtag é obrigatoria!" if @hashtags.nil?
+
       Faq.transaction do
         faq = Faq.create(question: @question,
                          answer: @answer,
@@ -20,8 +22,9 @@ module FaqModule
         end
         "Criado com sucesso!"
       end
+      
     end
 
   end
-  
+
 end

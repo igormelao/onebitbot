@@ -11,14 +11,14 @@ describe FaqModule::CreateService do
 
   describe '#call' do
     it "with valid params, receive success message" do
-      @createService = FaqModule::CreateService.new("question.original" => @question, "answer.original" => @answer, "hashtags.original" => @hashtags)
+      createService = FaqModule::CreateService.new("question.original" => @question, "answer.original" => @answer, "hashtags.original" => @hashtags)
 
-      response = @createService.call()
+      response = createService.call()
+
+      expect(response).to eq("Criado com sucesso!")
 
       @faq = Faq.last
       @hashtags_created = Hashtag.all
-
-      expect(response).to eq("Criado com sucesso!")
 
       expect(@faq.nil?).to eq(false)
       expect(@faq.company.name).to eq(@company.name)
@@ -29,6 +29,16 @@ describe FaqModule::CreateService do
 
       expect(@hashtags_created.empty?).to eq(false)
       expect(@hashtags_created.length).to eq(2)
+    end
+
+    it "without hashtag params, receive alert message" do
+      createService = FaqModule::CreateService.new("question.original" => @question, "answer.original" => @anser)
+
+      response = createService.call()
+
+      expect(response).to eq("A Hashtag é obrigatoria!")
+      expect(Faq.last).to eq(nil)
+      expect(Hashtag.last).to eq(nil)
     end
   end
 end
