@@ -4,8 +4,8 @@ require 'rack/test'
 require 'ffaker'
 
 #For all files in this directorie it will be require like above requireds
-Dir["./spec/support/**/*.rb"].each  { |file| require f }
-Dir["./spec/services/**.*.rb"].each { |file| require f }
+Dir["./spec/support/**/*.rb"].each  { |file| require file }
+Dir["./spec/services/**.*.rb"].each { |file| require file }
 
 set :environment, :test
 

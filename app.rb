@@ -4,7 +4,8 @@ require 'sinatra/activerecord'
 
 require './config/database'
 
-Dir["./app/models/*.rb"].each {|file| require file }
+Dir["./app/models/*.rb"].each      { |file| require file }
+Dir["./app/services/**/*.rb"].each { |file| require file }
 
 class App < Sinatra::Base
   get '/' do
