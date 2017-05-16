@@ -15,7 +15,7 @@ describe FaqModule::CreateService do
 
       response = createService.call()
 
-      expect(response).to eq("Criado com sucesso!")
+      expect(response).to eq("Created with success!")
 
       @faq = Faq.last
       @hashtags_created = Hashtag.all
@@ -26,19 +26,19 @@ describe FaqModule::CreateService do
       expect(@faq.answer).to eq(@answer)
       expect(@faq.hashtags.empty?).to eq(false)
       expect(@faq.hashtags.length).to eq(2)
-
-      expect(@hashtags_created.empty?).to eq(false)
-      expect(@hashtags_created.length).to eq(2)
+      expect(@faq.hashtags.first.name).to eq(Hashtag.first.name)
+      expect(@faq.hashtags.second.name).to eq(Hashtag.second.name)
     end
 
-    it "without hashtag params, receive alert message" do
+    it "without hashtag params, receive erro message" do
       createService = FaqModule::CreateService.new("question.original" => @question, "answer.original" => @anser)
 
       response = createService.call()
 
-      expect(response).to eq("A Hashtag é obrigatoria!")
+      expect(response).to eq("Hashtag is required!")
       expect(Faq.last).to eq(nil)
       expect(Hashtag.last).to eq(nil)
     end
+
   end
 end
