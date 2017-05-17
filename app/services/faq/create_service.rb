@@ -18,7 +18,7 @@ module FaqModule
                             company:  @company)
 
           @hashtags.split(/[\s,]+/).each do |hashtag|
-            faq.hashtags << Hashtag.create!(name: hashtag)
+            faq.hashtags << Hashtag.create!(name: hashtag, company: @company)
           end
           "Created with success!"
         end
