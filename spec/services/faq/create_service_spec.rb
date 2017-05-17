@@ -30,7 +30,7 @@ describe FaqModule::CreateService do
       expect(@faq.hashtags.second.name).to eq(Hashtag.second.name)
     end
 
-    it "without hashtag params, receive erro message" do
+    it "without hashtag params, receive error message" do
       createService = FaqModule::CreateService.new("question.original" => @question, "answer.original" => @anser)
 
       response = createService.call()
@@ -40,5 +40,12 @@ describe FaqModule::CreateService do
       expect(Hashtag.last).to eq(nil)
     end
 
+    it "with error, receive error message" do
+      createService = FaqModule::CreateService.new("question.original" => @question,"hashtags.original" => @hashtags)
+
+      response = createService.call()
+
+      expect(response).to eq("Ops! I'm sorry, but during the process of Faq creation occurred error Validation failed: Answer can't be blank. Contact us to resolve this problem! We will be glad to help you!")
+    end
   end
 end
