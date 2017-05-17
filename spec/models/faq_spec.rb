@@ -8,7 +8,7 @@ RSpec.describe Faq, :type => :model do
     @faq = Faq.new(company: @company,question: @question, answer: @answer)
   end
 
-  it "is valid with valid attributes"do
+  it "is valid with valid attributes" do
     expect(@faq).to be_valid
   end
 
