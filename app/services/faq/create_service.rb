@@ -4,9 +4,9 @@ module FaqModule
 
     def initialize(params)
       @company  = Company.last
-      @question = params["question.original"]
-      @answer   = params["answer.original"]
-      @hashtags = params["hashtags.original"]
+      @question = params["question-original"]
+      @answer   = params["answer-original"]
+      @hashtags = params["hashtags-original"]
     end
 
     def call()
