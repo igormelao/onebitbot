@@ -65,9 +65,5 @@ describe FaqModule::ListService do
       expect(response).to match(faq.answer)
       expect(response).not_to match(faq2.question)
     end
-
-    it "" do
-      
-    end
   end
 end
