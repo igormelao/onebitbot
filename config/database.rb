@@ -25,11 +25,10 @@ configure :production do
 
   set :database, {
     adapter:  db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-    encoding: 'utf8',
-    database: db.path[1..-1],
+    host:     db.host,
     username: db.user,
     password: db.password,
-    host:     db.host
+    database: db.path[1..-1],
+    encoding: 'utf8'
   }
-
 end
