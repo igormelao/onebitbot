@@ -17,6 +17,8 @@ Enjoy it!
 
 https://onebit-bot.herokuapp.com/sinatra
 
+# How to use it
+
 # Require
 ```
   * Sinatra
