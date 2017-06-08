@@ -15,7 +15,7 @@ Enjoy it!
 
 # Demo
 
-https://onebit-bot.herokuapp.com/sinatra
+https://onebit-bot.herokuapp.com/
 
 # How to use it
 
