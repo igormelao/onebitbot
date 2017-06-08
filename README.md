@@ -19,7 +19,7 @@ https://onebit-bot.herokuapp.com/
 
 # How to use it
 
-Invite your chat bot to your Slack Team
+Invite your chat bot to your Slack Team.
 
 # Require
 ```
