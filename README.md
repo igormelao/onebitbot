@@ -19,6 +19,8 @@ https://onebit-bot.herokuapp.com/sinatra
 
 # How to use it
 
+Invite your chat bot to your Slack Team
+
 # Require
 ```
   * Sinatra
