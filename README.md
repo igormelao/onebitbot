@@ -11,7 +11,7 @@ This project is about one bot that will create and manage a FAQ for a channel  S
 
 A Onebitbot is a bot that help you organize your's FAQ's Team in Slack. It's build in SINATRA and API.AI.
 
-Enjoy it!
+Enjoy it! 
 
 # Demo
 
